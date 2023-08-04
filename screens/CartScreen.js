@@ -69,7 +69,7 @@ import {
   
               <Pressable
                 style={{
-                  backgroundColor: "white",
+                  backgroundColor: "#D4E6F1",
                   borderRadius: 12,
                   marginLeft: 10,
                   marginRight: 10,
@@ -123,7 +123,7 @@ import {
                       <Pressable>
                         <Text
                           style={{
-                            fontSize: 19,
+                            fontSize: 20,
                             color: "#088F8F",
                             paddingHorizontal: 8,
                             fontWeight: "600",
@@ -165,7 +165,7 @@ import {
                 </Text>
                 <View
                   style={{
-                    backgroundColor: "white",
+                    backgroundColor: "#D4E6F1",
                     borderRadius: 7,
                     padding: 10,
                     marginTop: 15,
@@ -181,7 +181,7 @@ import {
                     <Text
                       style={{ fontSize: 18, fontWeight: "400", color: "gray" }}
                     >
-                      Item Total
+                      Total Item 
                     </Text>
                     <Text style={{ fontSize: 18, fontWeight: "400" }}>
                       ₹{total}
@@ -199,7 +199,7 @@ import {
                     <Text
                       style={{ fontSize: 18, fontWeight: "400", color: "gray" }}
                     >
-                      Delivery Fee | 1.2KM
+                      Delivery fee for | 2.0KM
                     </Text>
                     <Text
                       style={{
@@ -208,7 +208,7 @@ import {
                         color: "#088F8F",
                       }}
                     >
-                      FREE
+                      Free
                     </Text>
                   </View>
   
@@ -240,7 +240,7 @@ import {
                     <Text
                       style={{ fontSize: 18, fontWeight: "500", color: "gray" }}
                     >
-                      selected Date
+                      Selected Date
                     </Text>
                     <Text
                       style={{
@@ -371,7 +371,14 @@ import {
       </>
     );
   };
+
   
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#A569BD", // Replace this with your desired background color
+    },
+    // Any other styles you have can be added here...
+  });
+
   export default CartScreen;
-  
-  const styles = StyleSheet.create({});

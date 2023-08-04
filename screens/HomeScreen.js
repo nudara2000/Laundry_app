@@ -19,7 +19,7 @@ import DressItem from "../components/DressItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../ProductReducer";
 import { useNavigation } from "@react-navigation/native";
-import { collection, getDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
 const HomeScreen = () => {
@@ -163,15 +163,15 @@ const HomeScreen = () => {
   return (
     <>
       <ScrollView
-        style={{ backgroundColor: "#F0F0F0", flex: 1, marginTop: 50 }}
+        style={{ backgroundColor: "#CCCCFF", flex: 1,padding:2 }}
       >
         {/* Location and Profile */}
         <View
-          style={{ flexDirection: "row", alignItems: "center", padding: 10 }}
+          style={{ flexDirection: "row", alignItems: "center", padding:40 }}
         >
           <MaterialIcons name="location-on" size={30} color="#fd5c63" />
           <View>
-            <Text style={{ fontSize: 18, fontWeight: "600" }}>Home</Text>
+            <Text style={{ fontSize: 18, fontWeight: "600" }}>Hello!</Text>
             <Text>{displayCurrentAddress}</Text>
           </View>
 
@@ -194,11 +194,11 @@ const HomeScreen = () => {
             alignItems: "center",
             justifyContent: "space-between",
             borderWidth: 0.8,
-            borderColor: "#C0C0C0",
+            borderColor: "#D4E6F1",
             borderRadius: 7,
           }}
         >
-          <TextInput placeholder="Search for items or More" />
+          <TextInput placeholder="Search for items " />
           <Feather name="search" size={24} color="#fd5c63" />
         </View>
 

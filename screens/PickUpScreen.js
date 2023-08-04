@@ -101,7 +101,7 @@ import {
       <>
         <SafeAreaView>
           <Text style={{ fontSize: 16, fontWeight: "500", marginHorizontal: 10 }}>
-            enter Address
+            Enter Address
           </Text>
           <TextInput
             style={{
@@ -135,7 +135,7 @@ import {
           />
   
           <Text style={{ fontSize: 16, fontWeight: "500", marginHorizontal: 10 }}>
-            Select Time
+            Select Prefered Time
           </Text>
   
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -224,7 +224,7 @@ import {
                   marginVertical: 6,
                 }}
               >
-                extra charges might apply
+                Additional charges may apply
               </Text>
             </View>
   
