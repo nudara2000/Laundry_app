@@ -35,7 +35,6 @@ const Services = () => {
             {services.map((service,index) => (
                 <Pressable style={{margin:10,backgroundColor:"#D4E6F1",padding:20,borderRadius:7}} key={index}>
                     <Image source={{uri:service.image}} style={{width:70,height:70}}/>
-
                     <Text style={{textAlign:"center",marginTop:10}}>{service.name}</Text>
                 </Pressable>
             ))}

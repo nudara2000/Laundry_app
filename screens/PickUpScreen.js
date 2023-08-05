@@ -98,7 +98,7 @@ import {
     }
   
     return (
-      <>
+      <View style={styles.container}>
         <SafeAreaView>
           <Text style={{ fontSize: 16, fontWeight: "500", marginHorizontal: 10 }}>
             Enter Address
@@ -119,8 +119,8 @@ import {
           </Text>
           <HorizontalDatepicker
             mode="gregorian"
-            startDate={new Date("2023-02-21")}
-            endDate={new Date("2023-02-28")}
+            startDate={new Date("2023-08-20")}
+            endDate={new Date("2023-08-27")}
             initialSelectedDate={new Date("2020-08-22")}
             onSelectedDateChange={(date) => setSelectedDate(date)}
             selectedItemWidth={170}
@@ -129,9 +129,9 @@ import {
             itemRadius={10}
             selectedItemTextStyle={styles.selectedItemTextStyle}
             unselectedItemTextStyle={styles.selectedItemTextStyle}
-            selectedItemBackgroundColor="#222831"
-            unselectedItemBackgroundColor="#ececec"
-            flatListContainerStyle={styles.flatListContainerStyle}
+            selectedItemBackgroundColor="#34495E"
+            unselectedItemBackgroundColor="#CCCCFF"
+            flatListContainerStyle={styles.datePickerContainer}
           />
   
           <Text style={{ fontSize: 16, fontWeight: "500", marginHorizontal: 10 }}>
@@ -149,8 +149,8 @@ import {
                         margin: 10,
                         borderRadius: 7,
                         padding: 15,
-                        borderColor: "red",
-                        borderWidth: 0.7,
+                        borderColor: "#34495E",
+                        borderWidth: 2,
                       }
                     : {
                         margin: 10,
@@ -178,8 +178,8 @@ import {
                         margin: 10,
                         borderRadius: 7,
                         padding: 15,
-                        borderColor: "red",
-                        borderWidth: 0.7,
+                        borderColor: "#34495E",
+                        borderWidth: 2,
                       }
                     : {
                         margin: 10,
@@ -193,6 +193,7 @@ import {
                 key={i}
               >
                 <Text>{item.name}</Text>
+                
               </Pressable>
             ))}
           </ScrollView>
@@ -201,7 +202,7 @@ import {
         {total === 0 ? null : (
           <Pressable
             style={{
-              backgroundColor: "#088F8F",
+              backgroundColor: "#34495E",
               marginTop:"auto",
               padding: 10,
               marginBottom: 40,
@@ -235,10 +236,21 @@ import {
             </Pressable>
           </Pressable>
         )}
-      </>
+      </View>
     );
   };
   
   export default PickUpScreen;
   
-  const styles = StyleSheet.create({});
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#CCCCFF", // Replace this with your desired background color
+    },
+    // Any other styles you have can be added here...
+    datePickerContainer: {
+      backgroundColor: "#CCCCFF",
+      // ... Other styles you might want to apply ...
+    },
+  
+  });

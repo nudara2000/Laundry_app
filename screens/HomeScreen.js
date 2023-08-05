@@ -10,9 +10,6 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Feather } from "@expo/vector-icons";
-import * as Location from "expo-location";
-import { MaterialIcons } from "@expo/vector-icons";
 import Carousel from "../components/Carousel";
 import Services from "../components/Services";
 import DressItem from "../components/DressItem";
@@ -28,71 +25,8 @@ const HomeScreen = () => {
   const total = cart.map((item) => item.quantity * item.price).reduce((curr,prev) => curr + prev,0);
   const navigation = useNavigation();
   console.log(cart);
-  const [displayCurrentAddress, setdisplayCurrentAddress] = useState(
-    "we are loading your location"
-  );
-  const [locationServicesEnabled, setlocationServicesEnabled] = useState(false);
-  useEffect(() => {
-    checkIfLocationEnabled();
-    getCurrentLocation();
-  }, []);
-  const checkIfLocationEnabled = async () => {
-    let enabled = await Location.hasServicesEnabledAsync();
-    if (!enabled) {
-      Alert.alert(
-        "Location services not enabled",
-        "Please enable the location services",
-        [
-          {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel",
-          },
-          { text: "OK", onPress: () => console.log("OK Pressed") },
-        ],
-        { cancelable: false }
-      );
-    } else {
-      setlocationServicesEnabled(enabled);
-    }
-  };
-  const getCurrentLocation = async () => {
-    let { status } = await Location.requestForegroundPermissionsAsync();
+  
 
-    if (status !== "granted") {
-      Alert.alert(
-        "Permission denied",
-        "allow the app to use the location services",
-        [
-          {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel",
-          },
-          { text: "OK", onPress: () => console.log("OK Pressed") },
-        ],
-        { cancelable: false }
-      );
-    }
-
-    const { coords } = await Location.getCurrentPositionAsync();
-    // console.log(coords)
-    if (coords) {
-      const { latitude, longitude } = coords;
-
-      let response = await Location.reverseGeocodeAsync({
-        latitude,
-        longitude,
-      });
-
-      // console.log(response)
-
-      for (let item of response) {
-        let address = `${item.name} ${item.city} ${item.postalCode}`;
-        setdisplayCurrentAddress(address);
-      }
-    }
-  };
   const product = useSelector((state) => state.product.product);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -115,7 +49,7 @@ const HomeScreen = () => {
       image: "https://cdn-icons-png.flaticon.com/128/4643/4643574.png",
       name: "shirt",
       quantity: 0,
-      price: 10,
+      price: 100,
     },
     {
       id: "11",
@@ -161,52 +95,18 @@ const HomeScreen = () => {
     },
   ];
   return (
-    <>
+    <View style={styles.container}>
       <ScrollView
-        style={{ backgroundColor: "#CCCCFF", flex: 1,padding:2 }}
+        style={{ backgroundColor: "#CCCCFF", flex: 1,marginTop: 60 }}
       >
-        {/* Location and Profile */}
-        <View
-          style={{ flexDirection: "row", alignItems: "center", padding:40 }}
-        >
-          <MaterialIcons name="location-on" size={30} color="#fd5c63" />
-          <View>
-            <Text style={{ fontSize: 18, fontWeight: "600" }}>Hello!</Text>
-            <Text>{displayCurrentAddress}</Text>
-          </View>
-
-          <Pressable onPress={() => navigation.navigate("Profile")} style={{ marginLeft: "auto", marginRight: 7 }}>
-            <Image
-              style={{ width: 40, height: 40, borderRadius: 20 }}
-              source={{
-                uri: "https://lh3.googleusercontent.com/ogw/AAEL6sh_yqHq38z35QMy5Fnb8ZIxicdxCIVM9PeBD2j-=s64-c-mo",
-              }}
-            />
-          </Pressable>
-        </View>
-
-        {/* Search Bar */}
-        <View
-          style={{
-            padding: 10,
-            margin: 10,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            borderWidth: 0.8,
-            borderColor: "#D4E6F1",
-            borderRadius: 7,
-          }}
-        >
-          <TextInput placeholder="Search for items " />
-          <Feather name="search" size={24} color="#fd5c63" />
-        </View>
-
+        
         {/* Image Carousel */}
         <Carousel />
 
         {/* Services Component */}
         <Services />
+
+        <Text style={{fontSize:16,fontWeight:"500",marginBottom:7,padding:10}}>Select The Items</Text>
 
         {/* Render all the Products */}
         {product.map((item, index) => (
@@ -219,7 +119,7 @@ const HomeScreen = () => {
           ) : (
             <Pressable
             style={{
-              backgroundColor: "#088F8F",
+              backgroundColor: "#34495E",
               padding: 10,
               marginBottom: 40,
               margin: 15,
@@ -230,8 +130,8 @@ const HomeScreen = () => {
             }}
           >
             <View>
-              <Text style={{fontSize:17,fontWeight:"600",color:"white"}}>{cart.length} items |  $ {total}</Text>
-              <Text style={{fontSize:15,fontWeight:"400",color:"white",marginVertical:6}}>extra charges might apply</Text>
+              <Text style={{fontSize:17,fontWeight:"600",color:"white"}}>{cart.length} items |  Rs.{total}</Text>
+              <Text style={{fontSize:15,fontWeight:"400",color:"white",marginVertical:6}}>Service charges may apply</Text>
             </View>
     
             <Pressable onPress={() => navigation.navigate("PickUp")}>
@@ -240,10 +140,15 @@ const HomeScreen = () => {
           </Pressable>
           )}
      
-    </>
+    </View>
   );
 };
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#CCCCFF", // Replace this with your desired background color
+  },
+});

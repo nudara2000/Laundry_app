@@ -43,7 +43,7 @@ import {
       );
     };
     return (
-      <>
+      <View style={styles.container}>
         <ScrollView style={{ marginTop: 50 }}>
           {total === 0 ? (
             <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -111,7 +111,7 @@ import {
                         <Text
                           style={{
                             fontSize: 20,
-                            color: "#088F8F",
+                            color: "#34495E",
                             paddingHorizontal: 6,
                             fontWeight: "600",
                           }}
@@ -124,7 +124,7 @@ import {
                         <Text
                           style={{
                             fontSize: 20,
-                            color: "#088F8F",
+                            color: "#34495E",
                             paddingHorizontal: 8,
                             fontWeight: "600",
                           }}
@@ -142,7 +142,7 @@ import {
                         <Text
                           style={{
                             fontSize: 20,
-                            color: "#088F8F",
+                            color: "#34495E",
                             paddingHorizontal: 6,
                             fontWeight: "600",
                           }}
@@ -153,7 +153,7 @@ import {
                     </Pressable>
   
                     <Text style={{ fontSize: 16, fontWeight: "500" }}>
-                      ${item.price * item.quantity}
+                      Rs.{item.price * item.quantity}
                     </Text>
                   </View>
                 ))}
@@ -184,7 +184,7 @@ import {
                       Total Item 
                     </Text>
                     <Text style={{ fontSize: 18, fontWeight: "400" }}>
-                      ₹{total}
+                      Rs.{total}
                     </Text>
                   </View>
   
@@ -205,18 +205,36 @@ import {
                       style={{
                         fontSize: 18,
                         fontWeight: "400",
-                        color: "#088F8F",
                       }}
                     >
                       Free
                     </Text>
                   </View>
+
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      marginVertical: 8,
+                    }}
+                  >
+                    <Text
+                      style={{ fontSize: 18, fontWeight: "400", color: "gray" }}
+                    >
+                      Service charge
+                    </Text>
+                    <Text style={{ fontSize: 18, fontWeight: "400" }}>
+                      Rs.95
+                    </Text>
+                  </View>
+
   
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text
                       style={{ fontSize: 18, fontWeight: "500", color: "gray" }}
                     >
-                      Free Delivery on Your order
+                      Free Delivery on Your order !
                     </Text>
                   </View>
   
@@ -270,7 +288,7 @@ import {
                       style={{
                         fontSize: 18,
                         fontWeight: "400",
-                        color: "#088F8F",
+                        color: "#34495E",
                       }}
                     >
                       {route.params.no_Of_days}
@@ -295,7 +313,7 @@ import {
                       style={{
                         fontSize: 18,
                         fontWeight: "400",
-                        color: "#088F8F",
+                        color: "#34495E",
                       }}
                     >
                       {route.params.selectedTime}
@@ -322,7 +340,7 @@ import {
                       To Pay
                     </Text>
                     <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                      {total + 95}
+                      Rs.{total + 95}
                     </Text>
                   </View>
                 </View>
@@ -334,7 +352,7 @@ import {
         {total === 0 ? null : (
           <Pressable
             style={{
-              backgroundColor: "#088F8F",
+              backgroundColor: "#34495E",
               marginTop: "auto",
               padding: 10,
               marginBottom: 40,
@@ -347,7 +365,7 @@ import {
           >
             <View>
               <Text style={{ fontSize: 17, fontWeight: "600", color: "white" }}>
-                {cart.length} items | $ {total}
+                {cart.length} items | Rs.{total}
               </Text>
               <Text
                 style={{
@@ -368,7 +386,7 @@ import {
             </Pressable>
           </Pressable>
         )}
-      </>
+      </View>
     );
   };
 
@@ -376,7 +394,7 @@ import {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#A569BD", // Replace this with your desired background color
+      backgroundColor: "#CCCCFF", // Replace this with your desired background color
     },
     // Any other styles you have can be added here...
   });

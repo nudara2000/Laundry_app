@@ -47,7 +47,7 @@ const DressItem = ({ item }) => {
             {item.name}
           </Text>
           <Text style={{ width: 60, color: "gray", fontSize: 15 }}>
-            ${item.price}
+            Rs.{item.price}
           </Text>
         </View>
 
@@ -77,7 +77,7 @@ const DressItem = ({ item }) => {
               <Text
                 style={{
                   fontSize: 20,
-                  color: "#088F8F",
+                  color: "#34495E",
                   paddingHorizontal: 6,
                   fontWeight: "600",
                   textAlign: "center",
@@ -91,7 +91,7 @@ const DressItem = ({ item }) => {
               <Text
                 style={{
                   fontSize: 19,
-                  color: "#088F8F",
+                  color: "#34495E",
                   paddingHorizontal: 8,
                   fontWeight: "600",
                 }}
@@ -118,7 +118,7 @@ const DressItem = ({ item }) => {
               <Text
                 style={{
                   fontSize: 20,
-                  color: "#088F8F",
+                  color: "#34495E",
                   paddingHorizontal: 6,
                   fontWeight: "600",
                   textAlign: "center",
@@ -136,7 +136,7 @@ const DressItem = ({ item }) => {
                 borderRadius: 4,
                 borderWidth: 0.8,
                 marginVertical: 10,
-                color: "#088F8F",
+                color: "#34495E",
                 textAlign: "center",
                 padding: 5,
                 fontSize: 17,
