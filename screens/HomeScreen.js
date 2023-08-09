@@ -8,6 +8,7 @@ import {
   Image,
   TextInput,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Carousel from "../components/Carousel";
@@ -99,7 +100,18 @@ const HomeScreen = () => {
       <ScrollView
         style={{ backgroundColor: "#CCCCFF", flex: 1,marginTop: 60 }}
       >
-        
+         {/* Add the Login Button */}
+         <TouchableOpacity
+        style={[styles.loginButton, styles.loginButtonContainer]}
+        onPress={() => {
+          console.log("Login button pressed");
+          navigation.navigate("LoginScreen");
+        }}
+      >
+        <Text style={styles.loginButtonText}>Login</Text>
+      </TouchableOpacity>
+       
+
         {/* Image Carousel */}
         <Carousel />
 
@@ -151,4 +163,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#CCCCFF", // Replace this with your desired background color
   },
+  loginButton: {
+    backgroundColor: '#34495E',
+    padding: 10,
+    borderRadius: 5,
+    position: 'absolute',
+    top: 20,
+    right: 10,
+    zIndex: 1
+  },
+  loginButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  
 });

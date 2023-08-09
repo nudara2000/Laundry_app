@@ -215,7 +215,7 @@ import {
           >
             <View>
               <Text style={{ fontSize: 17, fontWeight: "600", color: "white" }}>
-                {cart.length} items | $ {total}
+                {cart.length} items | Rs. {total}
               </Text>
               <Text
                 style={{
