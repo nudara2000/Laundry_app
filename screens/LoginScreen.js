@@ -6,7 +6,8 @@ import {
     KeyboardAvoidingView,
     TextInput,
     Pressable,
-    ActivityIndicator
+    ActivityIndicator,
+    Image
   } from "react-native";
   import { Ionicons } from "@expo/vector-icons";
   import React, { useEffect, useState } from "react";
@@ -43,10 +44,11 @@ import {
     }
   
     return (
+      <View style={styles.container}>
       <SafeAreaView
         style={{
           flex: 1,
-          backgroundColor: "white",
+          backgroundColor: "#CCCCFF",
           alignItems: "center",
           padding: 10,
         }}
@@ -65,7 +67,16 @@ import {
               marginTop: 100,
             }}
           >
-            <Text style={{ fontSize: 20, color: "#662d91", fontWeight: "bold" }}>
+            <Text>
+            <Image
+              style={{ width: 200, height: 200, borderRadius: 100 }}
+              source={{
+                uri: "https://t3.ftcdn.net/jpg/04/27/57/28/240_F_427572855_RhQYKzH4mAzkzIYhnGngBA4h4x5kUwnm.jpg",
+              }}
+            />
+             </Text>
+     
+            <Text style={{ fontSize: 25, color: "#34495E", fontWeight: "bold",margin:5}}>
               Sign In
             </Text>
   
@@ -120,7 +131,7 @@ import {
             onPress={login}
               style={{
                 width: 200,
-                backgroundColor: "#318CE7",
+                backgroundColor: "#34495E",
                 padding: 15,
                 borderRadius: 7,
                 marginTop: 50,
@@ -149,9 +160,16 @@ import {
         </KeyboardAvoidingView>
         )}
       </SafeAreaView>
+      </View>
     );
   };
   
   export default LoginScreen;
   
-  const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#CCCCFF", // Replace this with your desired background color
+  },
+  
+});

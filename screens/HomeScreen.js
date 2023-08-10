@@ -11,6 +11,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
+import { MaterialIcons } from "@expo/vector-icons";
+import * as Location from "expo-location";
 import Carousel from "../components/Carousel";
 import Services from "../components/Services";
 import DressItem from "../components/DressItem";
@@ -25,9 +27,9 @@ const HomeScreen = () => {
   const [items,setItems] = useState([]);
   const total = cart.map((item) => item.quantity * item.price).reduce((curr,prev) => curr + prev,0);
   const navigation = useNavigation();
-  console.log(cart);
   
-
+  
+  
   const product = useSelector((state) => state.product.product);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -96,22 +98,30 @@ const HomeScreen = () => {
     },
   ];
   return (
+  
     <View style={styles.container}>
       <ScrollView
         style={{ backgroundColor: "#CCCCFF", flex: 1,marginTop: 60 }}
       >
-         {/* Add the Login Button */}
-         <TouchableOpacity
-        style={[styles.loginButton, styles.loginButtonContainer]}
-        onPress={() => {
-          console.log("Login button pressed");
-          navigation.navigate("LoginScreen");
-        }}
-      >
-        <Text style={styles.loginButtonText}>Login</Text>
-      </TouchableOpacity>
-       
+         {/* Profile */}
+         <View
+          style={{ flexDirection: "row", alignItems: "center", padding: 10 }}
+        >
+          <View>
+            <Text style={{ fontSize: 18, fontWeight: "600" }}>Hello!</Text>
+          </View>
 
+          <Pressable onPress={() => navigation.navigate("Profile")} style={{ marginLeft: "auto", marginRight: 7 }}>
+            <Image
+              style={{ width: 40, height: 40, borderRadius: 20 }}
+              source={{
+                uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-WNC_U07arflTEnIiQJ3bRb5g587a0Z-tlw&usqp=CAU",
+              }}
+            />
+          </Pressable>
+        </View>
+     
+      
         {/* Image Carousel */}
         <Carousel />
 
@@ -162,20 +172,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#CCCCFF", // Replace this with your desired background color
-  },
-  loginButton: {
-    backgroundColor: '#34495E',
-    padding: 10,
-    borderRadius: 5,
-    position: 'absolute',
-    top: 20,
-    right: 10,
-    zIndex: 1
-  },
-  loginButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
   },
   
 });
