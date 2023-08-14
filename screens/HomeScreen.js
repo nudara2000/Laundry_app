@@ -11,8 +11,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { MaterialIcons } from "@expo/vector-icons";
-import * as Location from "expo-location";
 import Carousel from "../components/Carousel";
 import Services from "../components/Services";
 import DressItem from "../components/DressItem";
@@ -108,7 +106,7 @@ const HomeScreen = () => {
           style={{ flexDirection: "row", alignItems: "center", padding: 10 }}
         >
           <View>
-            <Text style={{ fontSize: 18, fontWeight: "600" }}>Hello!</Text>
+            <Text style={{ fontSize: 18, fontWeight: "600" }}>Hello! Wellcome to Laundry Mart App..</Text>
           </View>
 
           <Pressable onPress={() => navigation.navigate("Profile")} style={{ marginLeft: "auto", marginRight: 7 }}>
