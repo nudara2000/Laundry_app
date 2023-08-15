@@ -57,14 +57,14 @@ const HomeScreen = () => {
       image: "https://cdn-icons-png.flaticon.com/128/892/892458.png",
       name: "T-shirt",
       quantity: 0,
-      price: 100,
+      price: 120,
     },
     {
       id: "12",
       image: "https://cdn-icons-png.flaticon.com/128/9609/9609161.png",
       name: "dresses",
       quantity: 0,
-      price: 100,
+      price: 250,
     },
     {
       id: "13",
@@ -85,14 +85,14 @@ const HomeScreen = () => {
       image: "https://cdn-icons-png.flaticon.com/128/3345/3345397.png",
       name: "shorts",
       quantity: 0,
-      price: 100,
+      price: 260,
     },
     {
       id: "16",
       image: "https://cdn-icons-png.flaticon.com/128/293/293241.png",
       name: "Sleeveless",
       quantity: 0,
-      price: 10,
+      price: 300,
     },
   ];
   return (
@@ -163,7 +163,7 @@ const HomeScreen = () => {
     </View>
   );
 };
-
+2
 export default HomeScreen;
 
 const styles = StyleSheet.create({
